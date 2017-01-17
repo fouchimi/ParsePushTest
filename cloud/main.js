@@ -13,15 +13,15 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   //console.log(customData);
   //console.log(launch);
   //console.log(broadcast);*/
-  console.log("customData "+ params.customData + " " + "title " + params.title + " " + " alert "+ params.alert ); 
+  console.log("customData "+ request.params.customData + " " + "title " + request.params.title + " " + " alert "+ request.params.alert); 
 
   // use to custom tweak whatever payload you wish to send
   var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.equalTo("deviceType", "android");
 
-  var payload = {"customData" : params.customData, 
-                 "title": params.title,
-                 "alert": params.alert };
+  var payload = {"customData" : request.params.customData, 
+                 "title": request.params.title,
+                 "alert": request.params.alert };
 
   // Note that useMasterKey is necessary for Push notifications to succeed.
 
